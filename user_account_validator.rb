@@ -16,7 +16,7 @@ class UserAccountValidator
   end
 
   def validate_email
-    raise EmailError unless @email && @email.include?("@")
+    raise EmailError unless @email &.include?("@")
   end
 
   def validate_username
