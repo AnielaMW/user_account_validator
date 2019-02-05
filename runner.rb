@@ -1,4 +1,5 @@
 require_relative "user_account_validator"
+require 'pry'
 
 users = [
   {
@@ -35,5 +36,9 @@ users = [
     name: "Dopey"
   }
 ]
-
-users.map { |user| UserAccountValidator.new(user) }
+begin
+  users_hash = users.map { |user| UserAccountValidator.new(user) }
+  users_hash.each{ |user| user.validate}
+rescue StandardError => error
+  print error
+end
